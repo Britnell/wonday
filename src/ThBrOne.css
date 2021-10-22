@@ -1,0 +1,74 @@
+
+.App {
+
+}
+
+/* backgrounds */
+
+.background {
+  width: 100%;
+}
+
+  .gradient {
+    height: 600vh;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(119,212,237,0.8) 14%, rgba(3,138,255,1) 30%, rgba(0,30,228,1) 48%, rgba(255,0,51,1) 66%, rgba(0,0,0,1) 89%, rgba(0,0,0,1) 100%);
+  }
+
+/* Image text */
+
+header {
+  
+
+}
+
+
+.stickycontainer {
+  position: sticky;
+  top: 0px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+  .fillrow {
+    flex: 1 0;
+    background-color: #000;
+  }
+
+  .flexrow {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+  }
+
+  .fleximg {
+    max-width: 800px;
+  }
+    .ct {
+      width: 50%;
+    }
+    .tb {
+      width: 100%;
+    }
+
+  .headerimg {
+    width: 100%;
+    max-width: 800px;
+    /* height: 100%; */
+    display:block 
+  }
+
+  .filler {
+    flex: 1 0;
+    background-color: #000;
+  }
+
+
+
+footer {
+  height: 400px;
+  background-color: #000;
+}
