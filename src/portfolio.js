@@ -12,6 +12,7 @@ import mona from './img/mona.png'
 import morph from './img/morph.png'
 import curious from './img/wiki.png'
 import three from './img/three-js.png'
+import note from './img/sharednote.png'
 
 function Card({title,text,img,link,children}){
 
@@ -53,16 +54,22 @@ export default function Portfolio(){
                     link="https://next-album-shelf.vercel.app/"
                 />
                 <Card
-                    title="A FULL-STACK (DEMO) FOOD DELIVERY"
-                    text="Built with Next.js, session login, owners CRUD restaurant & meals, users can place orders, order status processing"
-                    img={{src:food, alt:"A Demo delivery website" }} 
-                    link="https://a-delivery-website.vercel.app"
+                    title="SHARED-NOTE"
+                    text="A simpled web-app for shared notes, list & to-dos"
+                    img={{src:note, alt:"A shared note page" }} 
+                    link="https://shared-note.vercel.app"
                 />
                 <Card
                     title="POMODORO TIMER PWA"
                     text="A Pomodoro Timer Progress-Web-App, built with redux and tailwind"
                     img={{src:pomodoro, alt:"A pomodoro timer PWA" }} 
                     link="https://webs.wonday.eu/react/pomodoro/"
+                />
+                <Card
+                    title="A FULL-STACK (DEMO) FOOD DELIVERY"
+                    text="Built with Next.js, session login, owners CRUD restaurant & meals, users can place orders, order status processing"
+                    img={{src:food, alt:"A Demo delivery website" }} 
+                    link="https://a-delivery-website.vercel.app"
                 />
                 <Card
                     title="MY INTRODUCTION"
