@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Html from '../layouts/Html.astro'
+import Meta from '../layouts/Meta.astro'
+import Hero from '../components/Hero.svelte';
+import Follow from '../components/Follow.svelte';
+
+---
+
+<Html>
+<Fragment slot="meta">
+	<Meta title="Tommy's Website"
+		description="I'm a front-end web developer and this is my personal portfolio website" />
+</Fragment>
+<Layout>
+
+
+	<Fragment>
+		<Hero client:load />
+		<Follow client:load />
+		<div class="lorem">
+			<p>LOREM IPSSUUM</p>
+		</div>
+	</Fragment>
+</Layout>
+
+<style>
+	.lorem {
+		min-height: 100vh;
+	}
+</style>
+
+</Html>

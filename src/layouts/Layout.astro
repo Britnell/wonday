@@ -1,0 +1,43 @@
+---
+
+---
+
+<div class="layout">
+	<header>
+		<nav>
+			<ul class="navlist">
+				<div class="home">
+					<li><a href="/">Home</a></li>
+				</div>
+				<div class="rest">
+					<li><a href="/more">More</a></li>
+					<li><a href="/about">about</a></li>
+				</div>
+			</ul>
+		</nav>
+	</header>
+	<slot />
+</div>
+
+
+
+<style>
+	.navlist {
+		margin: 8px 24px;
+		padding: 0;
+		list-style: none;
+
+		display: flex;
+		flex-direction: row;
+	}
+
+	.home {
+		flex: 1;
+	}
+
+	.rest {
+
+		display: flex;
+		flex-direction: row;
+	}
+</style>
