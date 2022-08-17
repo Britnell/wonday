@@ -1,44 +1,37 @@
 <script>
-import { spring } from 'svelte/motion';
+import Logo from './Logo.svelte'
 
 let trail = [];
 const Len = 200;
+let mouse = {x: 0, y: 0};
 
-let coords = spring({ x: 50, y: 50 }, {
-    stiffness: 0.01,
-    damping: 0.1
-});
 
 const mouseMove = (ev)=>{
+    mouse = { x: ev.clientX, y: ev.clientY };
+
     let pos = {
         x: ev.pageX,
         y: ev.pageY
-    }
-    // add to trail
-    trail = [pos, ...trail ];
+    }    
+    let mag = Math.sqrt(ev.movementX * ev.movementX + ev.movementY * ev.movementY );
+    if(mag < 2 ) return;
 
-    if(trail.length>Len)
-    trail = trail.slice(0,Len);
-
-    // update
-}
-
-$: {
-    let p = trail[20]
-    if(p) coords.set(p)
-    // console.log(p)
+    let _trail = [pos, ...trail ];
+    if(_trail.length>Len) _trail.pop()
+    trail = _trail;
 }
 
 </script>
 
-<div class="container" on:mousemove={mouseMove}>
+<div class="container">
     <h1>Web Developer</h1>
-    <div class="box b1" style={`left: ${$coords.x}px; top: ${$coords.y}px`}></div>
+    <Logo logo="Goo" mouse={mouse} target={trail[10]} />
     <h1>Frontend</h1>
-    <div class="box b2"></div>
+    <Logo logo="Baa" mouse={mouse} target={trail[30]} />
     <h1>Creative tTechnologist</h1>
-    <div class="box b3"></div>
+    
 </div>
+<svelte:body on:mousemove|passive={mouseMove} ></svelte:body>
 
 
 <style>
@@ -48,7 +41,7 @@ $: {
     border: 1px solid #999;
 }
 
-.box {
+.logo {
     background: red;
     width: 40px;
     height: 40px;
