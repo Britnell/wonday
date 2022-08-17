@@ -20,7 +20,6 @@ const checkForFollow = ()=> {
                 x: rect.x + rect.width/2 + window.scrollX,
                 y: rect.y + rect.height/2 + window.scrollY
             }
-            console.log('rec', rect )
             coords = spring({ 
                 x: initial.x, 
                 y: initial.y

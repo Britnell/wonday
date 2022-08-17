@@ -4,7 +4,14 @@ import Logo from './Logo.svelte'
 let trail = [];
 const Len = 200;
 let mouse = {x: 0, y: 0};
+let lastSCroll;
 
+
+const addToTrail = (pos)=>{
+    let _trail = [pos, ...trail ];
+    if(_trail.length>Len) _trail.pop()
+    trail = _trail;
+}
 
 const mouseMove = (ev)=>{
     mouse = { x: ev.clientX, y: ev.clientY };
@@ -12,13 +19,32 @@ const mouseMove = (ev)=>{
     let pos = {
         x: ev.pageX,
         y: ev.pageY
-    }    
+    }
+    
     let mag = Math.sqrt(ev.movementX * ev.movementX + ev.movementY * ev.movementY );
     if(mag < 2 ) return;
+    console.log(pos);
 
-    let _trail = [pos, ...trail ];
-    if(_trail.length>Len) _trail.pop()
-    trail = _trail;
+    addToTrail(pos)
+}
+
+const onScroll = ()=>{
+    if(!lastSCroll) {
+        lastSCroll = window.scrollY;
+        return;
+    }
+    
+    let yd = window.scrollY - lastSCroll;
+    mouse.x += yd;
+    if(Math.abs(yd) < 2) return;
+    
+    let pos = {
+        x: trail[0].x,
+        y: trail[0].y + yd
+    }
+    console.log(yd, pos);
+    addToTrail(pos);    
+    lastSCroll = window.scrollY;
 }
 
 </script>
@@ -59,14 +85,14 @@ const mouseMove = (ev)=>{
         </div>
     </div>
 </div>
-<svelte:body on:mousemove|passive={mouseMove} ></svelte:body>
+<svelte:body on:mousemove|passive={mouseMove} />
+<svelte:window on:scroll={onScroll} />
 
 
 <style>
 
 .skills {
     min-height: 100vh;
-    border: 1px solid #999;
 }
 
 .skills h3 {
@@ -79,10 +105,6 @@ const mouseMove = (ev)=>{
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    /* 
-    grid-auto-rows: auto;
-    grid-template-rows: repeat(40, 10vw); 
-    */
 }
 
 .grid > div {
@@ -92,7 +114,6 @@ const mouseMove = (ev)=>{
 .webdev {
     grid-column: 1 / 7;
     grid-row: 1 / 5;
-    border: 1px solid #000;
 }
     .web {
         font-size: 22vw;
@@ -102,22 +123,16 @@ const mouseMove = (ev)=>{
     }
 
 .htmlcss {
-    border: 1px solid #000;
     grid-column: 7 / 13;
     grid-row: 1;
 
     display: flex;
     justify-content: space-between;
 }
-    .html {
-    }
-    .css {
-    }
 
 .frontend {
     grid-column: 7 / 13;
     grid-row: 2 / 7;
-    border: 1px solid #000;
 }
     .front {
         font-size: calc(16vw);
@@ -144,6 +159,17 @@ const mouseMove = (ev)=>{
 
 .creativetech {
     grid-column: 1 / -1;
-    grid-row: span 2
+    grid-row: span 2;
+
 }
+
+    .creative {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .creative h3 {
+        font-size: 16vw;
+    }
+
 </style>
