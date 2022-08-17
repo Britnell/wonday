@@ -49,11 +49,7 @@ $: update(target);
         class={`logo ${following?'follow':'fixed'}`}
         style={`left: ${following?`${$coords.x}px` : 'unset' }; `+
                `top: ${following?`${$coords.y}px` : 'unset' }; `}
-
-    >
-        {logo} {following}
-        {target?.x}
-    </div>
+    >{logo}</div>
 </div>
 
 

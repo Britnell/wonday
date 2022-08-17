@@ -30,11 +30,13 @@ const mouseMove = (ev)=>{
             <h3 class="web">Web</h3>
             <h3 class="dev">developer</h3>
         </div>
-        <div class="html">
-            <Logo logo="HTML" mouse={mouse} target={trail[10]} />
-        </div>
-        <div class="css">
-            <Logo logo="CSS" mouse={mouse} target={trail[30]} />
+        <div class="htmlcss">
+            <div class="html">
+                <Logo logo="HTML" mouse={mouse} target={trail[10]} />
+            </div>
+            <div class="css">
+                <Logo logo="CSS" mouse={mouse} target={trail[30]} />
+            </div>
         </div>
         <div class="frontend">
             <h3 class="front">front</h3>
@@ -43,8 +45,17 @@ const mouseMove = (ev)=>{
                 <Logo logo="React" mouse={mouse} target={trail[50]} />
             </div>
         </div>
-        <div class="js">
-            <Logo logo="js" mouse={mouse} target={trail[70]} />
+        <div class="andjs">
+            <div class="js">
+                <Logo logo="js" mouse={mouse} target={trail[70]} />
+            </div>
+            <h3 class="amp">&amp;</h3>
+        </div>
+        <div class="creativetech">
+            <div class="creative">
+                <h3>creative</h3>
+                <Logo logo="sass" mouse={mouse} target={trail[90]} />
+            </div>
         </div>
     </div>
 </div>
@@ -68,8 +79,8 @@ const mouseMove = (ev)=>{
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: auto;
     /* 
+    grid-auto-rows: auto;
     grid-template-rows: repeat(40, 10vw); 
     */
 }
@@ -79,8 +90,9 @@ const mouseMove = (ev)=>{
 }
 
 .webdev {
-    grid-column: 1 / 8;
+    grid-column: 1 / 7;
     grid-row: 1 / 5;
+    border: 1px solid #000;
 }
     .web {
         font-size: 22vw;
@@ -89,22 +101,26 @@ const mouseMove = (ev)=>{
         font-size: 10vw;
     }
 
-.html {
-    grid-column: 10;
+.htmlcss {
+    border: 1px solid #000;
+    grid-column: 7 / 13;
     grid-row: 1;
+
+    display: flex;
+    justify-content: space-between;
 }
-.css {
-    grid-column: 12 ;
-    grid-row: 1;
-}
+    .html {
+    }
+    .css {
+    }
 
 .frontend {
-    grid-column: 8 / 13;
+    grid-column: 7 / 13;
     grid-row: 2 / 7;
+    border: 1px solid #000;
 }
     .front {
-        font-size: 14vw;
-        text-align: right;
+        font-size: calc(16vw);
     }
     .end {
         display: flex;
@@ -113,12 +129,21 @@ const mouseMove = (ev)=>{
     }
     .end h3 {
         font-size: 20vw;
-        text-align: right;
     }
 
-.js {
-    grid-column: 0;
-    grid-row: 7;
-}
+.andjs {
+    grid-column: 1 / 5;
+    grid-row: 5 / 8;
 
+    display: flex;
+    justify-content: space-between;
+}
+    .amp {
+        font-size: 20vw;
+    }
+
+.creativetech {
+    grid-column: 1 / -1;
+    grid-row: span 2
+}
 </style>
