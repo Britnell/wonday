@@ -23,7 +23,6 @@ const mouseMove = (ev)=>{
     
     let mag = Math.sqrt(ev.movementX * ev.movementX + ev.movementY * ev.movementY );
     if(mag < 2 ) return;
-    console.log(pos);
 
     addToTrail(pos)
 }
@@ -33,7 +32,7 @@ const onScroll = ()=>{
         lastSCroll = window.scrollY;
         return;
     }
-    
+
     let yd = window.scrollY - lastSCroll;
     mouse.x += yd;
     if(Math.abs(yd) < 2) return;
@@ -42,7 +41,6 @@ const onScroll = ()=>{
         x: trail[0].x,
         y: trail[0].y + yd
     }
-    console.log(yd, pos);
     addToTrail(pos);    
     lastSCroll = window.scrollY;
 }
@@ -105,6 +103,7 @@ const onScroll = ()=>{
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    overflow: hidden;
 }
 
 .grid > div {
