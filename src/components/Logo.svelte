@@ -5,6 +5,7 @@ import { spring } from 'svelte/motion';
 export let mouse = {x:0,y:0};
 export let target = {x:0,y:0};
 export let logo = 'logo';
+export let img;
 
 let ref, coords;
 let following = false;
@@ -48,7 +49,9 @@ $: update(target);
         class={`logo ${following?'follow':'fixed'}`}
         style={`left: ${following?`${$coords.x}px` : 'unset' }; `+
                `top: ${following?`${$coords.y}px` : 'unset' }; `}
-    >{logo}</div>
+    >
+     <img src={img} alt={logo} />
+    </div>
 </div>
 
 
@@ -59,8 +62,13 @@ $: update(target);
         height: 100px;    
     }
     .logo {
-        background-color: #666;
         z-index: -1;
+        position: relative;
+    }
+
+    .logo img {
+        width: 100%;
+        height: 100%;
     }
 
     .fixed {

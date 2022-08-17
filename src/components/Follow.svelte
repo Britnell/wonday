@@ -56,36 +56,35 @@ const onScroll = ()=>{
         </div>
         <div class="htmlcss">
             <div class="html">
-                <Logo logo="HTML" mouse={mouse} target={trail[10]} />
+                <Logo logo="HTML" img="/logos/html.svg" mouse={mouse} target={trail[10]} />
             </div>
             <div class="css">
-                <Logo logo="CSS" mouse={mouse} target={trail[30]} />
+                <Logo logo="CSS" img="/logos/css.svg" mouse={mouse} target={trail[30]} />
             </div>
         </div>
         <div class="frontend">
             <h3 class="front">front</h3>
             <div class="end">
                 <h3>end</h3>
-                <Logo logo="React" mouse={mouse} target={trail[50]} />
+                <Logo logo="React" img="/logos/react.svg" mouse={mouse} target={trail[70]} />
             </div>
         </div>
         <div class="andjs">
             <div class="js">
-                <Logo logo="js" mouse={mouse} target={trail[70]} />
+                <Logo logo="js" img="/logos/js.svg" mouse={mouse} target={trail[50]} />
             </div>
             <h3 class="amp">&amp;</h3>
         </div>
         <div class="creativetech">
             <div class="creative">
                 <h3>creative</h3>
-                <Logo logo="sass" mouse={mouse} target={trail[90]} />
+                <Logo logo="sass" img="logos/sass.svg" mouse={mouse} target={trail[90]} />
             </div>
         </div>
     </div>
 </div>
 <svelte:body on:mousemove|passive={mouseMove} />
 <svelte:window on:scroll={onScroll} />
-
 
 <style>
 
@@ -138,7 +137,7 @@ const onScroll = ()=>{
     }
     .end {
         display: flex;
-        align-items: center;
+        align-items: initial;
         justify-content: space-between;
     }
     .end h3 {
