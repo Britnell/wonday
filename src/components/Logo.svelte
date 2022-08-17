@@ -35,12 +35,8 @@ const checkForFollow = ()=> {
 $: checkForFollow(mouse,ref);
 
 const update = ()=>{
-    if(!following) return;
-    
-    // console.log('target ', target)
-
-    if(target) coords.set(target)
-
+    if(!following) return;    
+    if(target) coords.set(target);
 }
 
 $: update(target);
@@ -68,8 +64,8 @@ $: update(target);
         height: 100px;    
     }
     .logo {
-        
-        border: 1px solid #000;
+        background-color: #666;
+        z-index: -1;
     }
 
     .fixed {

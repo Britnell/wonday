@@ -23,30 +23,102 @@ const mouseMove = (ev)=>{
 
 </script>
 
-<div class="container">
-    <h1>Web Developer</h1>
-    <Logo logo="Goo" mouse={mouse} target={trail[10]} />
-    <h1>Frontend</h1>
-    <Logo logo="Baa" mouse={mouse} target={trail[30]} />
-    <h1>Creative tTechnologist</h1>
-    
+<div class="skills">
+    <div class="grid">
+        
+        <div class="webdev">
+            <h3 class="web">Web</h3>
+            <h3 class="dev">developer</h3>
+        </div>
+        <div class="html">
+            <Logo logo="HTML" mouse={mouse} target={trail[10]} />
+        </div>
+        <div class="css">
+            <Logo logo="CSS" mouse={mouse} target={trail[30]} />
+        </div>
+        <div class="frontend">
+            <h3 class="front">front</h3>
+            <div class="end">
+                <h3>end</h3>
+                <Logo logo="React" mouse={mouse} target={trail[50]} />
+            </div>
+        </div>
+        <div class="js">
+            <Logo logo="js" mouse={mouse} target={trail[70]} />
+        </div>
+    </div>
 </div>
 <svelte:body on:mousemove|passive={mouseMove} ></svelte:body>
 
 
 <style>
 
-.container {
+.skills {
     min-height: 100vh;
     border: 1px solid #999;
 }
 
-.logo {
-    background: red;
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    transform: translate(-50%,-50%);
+.skills h3 {
+    font-family: Oswald;
+    line-height: 1.2;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: auto;
+    /* 
+    grid-template-rows: repeat(40, 10vw); 
+    */
+}
+
+.grid > div {
+    padding: 10px;
+}
+
+.webdev {
+    grid-column: 1 / 8;
+    grid-row: 1 / 5;
+}
+    .web {
+        font-size: 22vw;
+    }
+    .dev {
+        font-size: 10vw;
+    }
+
+.html {
+    grid-column: 10;
+    grid-row: 1;
+}
+.css {
+    grid-column: 12 ;
+    grid-row: 1;
+}
+
+.frontend {
+    grid-column: 8 / 13;
+    grid-row: 2 / 7;
+}
+    .front {
+        font-size: 14vw;
+        text-align: right;
+    }
+    .end {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .end h3 {
+        font-size: 20vw;
+        text-align: right;
+    }
+
+.js {
+    grid-column: 0;
+    grid-row: 7;
 }
 
 </style>
