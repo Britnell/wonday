@@ -2,10 +2,11 @@
 import Logo from './Logo.svelte'
 
 let trail = [];
-const Len = 200;
+const Len = 400;
 let mouse = {x: 0, y: 0};
 let lastSCroll;
 
+let ref;
 
 const addToTrail = (pos)=>{
     let _trail = [pos, ...trail ];
@@ -13,41 +14,48 @@ const addToTrail = (pos)=>{
     trail = _trail;
 }
 
-const mouseMove = (ev)=>{
-    mouse = { x: ev.clientX, y: ev.clientY };
+const mouseMove = (ev)=>{    
+    let rec = ref.getBoundingClientRect();
+    if(ev.clientY < rec.y || ev.clientY > rec.y + rec.height) return ;
 
     let pos = {
         x: ev.pageX,
         y: ev.pageY
     }
     
+    mouse = { x: ev.clientX, y: ev.clientY };
     let mag = Math.sqrt(ev.movementX * ev.movementX + ev.movementY * ev.movementY );
     if(mag < 2 ) return;
 
     addToTrail(pos)
 }
 
+
 const onScroll = ()=>{
     if(!lastSCroll) {
         lastSCroll = window.scrollY;
         return;
     }
+    if(!trail[0]) return;
 
     let yd = window.scrollY - lastSCroll;
     mouse.x += yd;
-    if(Math.abs(yd) < 2) return;
+    if(Math.abs(yd) < 1) return;
+    lastSCroll = window.scrollY;
     
     let pos = {
         x: trail[0].x,
         y: trail[0].y + yd
     }
+    let rec = ref.getBoundingClientRect()
+    
+    if(pos.y < rec.y + window.scrollY || pos.y > rec.y + rec.height + window.scrollY) return;
     addToTrail(pos);    
-    lastSCroll = window.scrollY;
 }
 
 </script>
 
-<div class="skills">
+<div bind:this={ref} class="skills">
     <div class="grid">
         
         <div class="webdev">
@@ -78,9 +86,52 @@ const onScroll = ()=>{
         <div class="creativetech">
             <div class="creative">
                 <h3>creative</h3>
-                <Logo logo="sass" img="logos/sass.svg" mouse={mouse} target={trail[90]} />
+                <div class="logos">
+                    <Logo logo="sass" img="logos/sass.svg" mouse={mouse} target={trail[90]} />
+                    <Logo logo="tailwind" img="logos/tailwind.svg" mouse={mouse} target={trail[110]} />
+                </div>
             </div>
-        </div>
+            <div class="technologist">
+                <Logo logo="typescript" img="logos/ts.svg" mouse={mouse} target={trail[130]} />
+                <Logo logo="npm" img="logos/npm.svg" mouse={mouse} target={trail[150]} />
+                <h3>technologist</h3>
+                </div>
+                <div class="fullstackrow">
+                    <div class="fullstack">
+                        <h3 class="full">full</h3>
+                        <h3 class="stack">stack ?</h3>
+                    </div>
+                    <div class="logos">
+                        <Logo logo="next" img="logos/next.png" mouse={mouse} target={trail[170]} />
+                        <Logo logo="remix" img="logos/remix.svg" mouse={mouse} target={trail[190]} />
+                        <Logo logo="prisma" img="logos/prisma.svg" mouse={mouse} target={trail[210]} />
+                        <Logo logo="supabase" img="logos/supabase.svg" mouse={mouse} target={trail[230]} />
+                    </div>
+                </div>
+                <div class="more">
+                    <Logo logo="storyblok" img="logos/storyblok.svg" mouse={mouse} target={trail[250]} />
+                    <div class="headless">
+                        <h3>Headless CMS</h3>
+                        <h3>& Cdn</h3>
+                    </div>
+                    <Logo logo="vercel" img="logos/vercel.svg" mouse={mouse} target={trail[270]} />
+                    <Logo logo="netlify" img="logos/netlify.svg" mouse={mouse} target={trail[290]} />
+                    </div>
+                    <div class="cool">
+                    <div class="logos">
+                        <div class="astro">
+                            <Logo logo="astro" img="logos/astro.svg" mouse={mouse} target={trail[310]} />
+                        </div>
+                        <div class="svelte">
+                            <Logo logo="svelte" img="logos/svelte.svg" mouse={mouse} target={trail[330]} />
+                        </div>
+                        <div class="solid">
+                            <Logo logo="solid" img="logos/solid.svg" mouse={mouse} target={trail[350]} />
+                        </div>
+                    </div>
+                    <h3>Then there’s the new kids on the block 👀</h3>
+                </div>
+            </div>
     </div>
 </div>
 <svelte:body on:mousemove|passive={mouseMove} />
@@ -125,7 +176,7 @@ const onScroll = ()=>{
     grid-row: 1;
 
     display: flex;
-    justify-content: space-between;
+    gap: 100px;
 }
 
 .frontend {
@@ -164,10 +215,84 @@ const onScroll = ()=>{
     .creative {
         display: flex;
         justify-content: space-between;
-        align-items: center;
     }
     .creative h3 {
-        font-size: 16vw;
+        font-size: 22vw;
+    }
+    .creative .logos {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
     }
 
+    .technologist {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .technologist h3 {
+        font-size: 12vw;
+    }
+
+    .fullstackrow {
+        margin-top: 100px;
+        display: flex;
+    }
+        .fullstack {
+            display: flex;
+            flex-direction: column;
+        }
+        .fullstack h3 {
+            font-size: 18vw;
+        }
+
+        .fullstackrow .logos {
+            flex: 1;
+            display: grid;
+            grid-template: 1fr 1fr / 1fr 1fr;
+            place-items: center;
+        }
+    
+    .more {
+        margin-top: 100px;
+        display: flex;
+        align-items: center;
+    }
+
+        .headless {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .headless h3 {
+            font-size: 10vw;
+            text-transform: capitalize;
+            text-align: center;
+        }
+    
+    .cool {
+        margin-top: 100px;
+        display: flex;
+    }
+
+        .cool h3 {
+            flex: 2;
+            font-size: 6vw;
+        }
+        .logos {
+            flex: 1;
+
+            display: grid;
+            grid-template: repeat(3,100px) / repeat(3,100px);
+        }
+        .svelte {
+            grid-row: 2/3;
+            grid-column: 2/3;
+        }
+        .solid {
+            grid-row: 3/4;
+            grid-column: 3/4;
+        }
 </style>

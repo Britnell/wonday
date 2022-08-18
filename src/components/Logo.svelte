@@ -1,9 +1,8 @@
 <script>
-import { onMount } from 'svelte/internal';
 import { spring } from 'svelte/motion';
 
 export let mouse = {x:0,y:0};
-export let target = {x:0,y:0};
+export let target;
 export let logo = 'logo';
 export let img;
 
@@ -14,6 +13,9 @@ const checkForFollow = ()=> {
     if(!ref) return;
     if(!following){
         let rect = ref.getBoundingClientRect();
+        
+        // if(!target?.y) return;
+        // if(target.y > rect.y + window.scrollY) {
         if(mouse.y > rect.y) {
             following = true;
             let rect = ref.getBoundingClientRect();
