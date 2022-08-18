@@ -19,7 +19,7 @@
 
     const onScroll = ()=>{
         const t_anim = 2600;
-        let pos = (window.scrollY < 80) ? 'in' : 'out';
+        let pos = (window.scrollY < 50) ? 'in' : 'out';
 
         if(timerRef) clearTimeout(timerRef);
         if(animation===' ') return;
@@ -42,6 +42,7 @@
 
 <div>
     <div class="hero">
+        <div class="left"></div>
         <h1 class={`tommy ${animation}`} class:init  >
             <span class=""><span><span><span>T</span></span></span></span>
             <span class="o"><span class="hov">o</span></span> 
@@ -70,10 +71,8 @@
             <span class="y"><span class="slide">y</span></span>
 
         </h1>
-        </div>
-        <div>
-            <button on:click={()=>animation = (animation==='in'?'out':'in')}>Flip</button>
-        </div>
+        <div class="right"></div>
+    </div>
 </div>
 
 <svelte:window on:scroll={onScroll}></svelte:window>
@@ -93,11 +92,25 @@
         position: relative;
     }
 
+    .left, .right {
+        flex: 1;
+        height: 100%;
+    }
+    .left {
+        background: linear-gradient(to left, transparent 100px, white 200px);
+        z-index: 2;
+    }
+    .right {
+        background: linear-gradient(to right, transparent 100px, white 200px);
+        z-index: 2;
+    }
+
+
     .tommy {
         position: relative;
         font-family: 'Roboto', sans-serif;
         font-weight: 400;        
-        font-size: 140px;
+        font-size: 16vw;
         
         margin: 0;
         display: flex;

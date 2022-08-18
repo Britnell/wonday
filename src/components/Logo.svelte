@@ -14,8 +14,6 @@ const checkForFollow = ()=> {
     if(!following){
         let rect = ref.getBoundingClientRect();
         
-        // if(!target?.y) return;
-        // if(target.y > rect.y + window.scrollY) {
         if(mouse.y > rect.y) {
             following = true;
             let rect = ref.getBoundingClientRect();
