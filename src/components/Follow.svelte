@@ -66,16 +66,13 @@ const onScroll = ()=>{
     if(!mouse) return;
 
     let yd = window.scrollY - lastScroll;
-
     if(Math.abs(yd) < 1) return;
 
     mouse.page.y = Math.floor(mouse.page.y + yd);
     lastScroll = window.scrollY;
-    
-    
+        
     if(isOnElement(ref,mouse.client))
         addToTrail(mouse.page);
-    
 }
 
 </script>
@@ -156,7 +153,8 @@ const onScroll = ()=>{
                     </div>
                     <h3>Then there’s the new kids on the block 👀</h3>
                 </div>
-            </div>
+            <div class="endspacer"></div>
+        </div>
     </div>
 </div>
 <svelte:body on:mousemove={mouseMove}  />
@@ -304,6 +302,7 @@ const onScroll = ()=>{
         .cool h3 {
             flex: 2;
             font-size: 6vw;
+            text-transform: capitalize;
         }
         .logos {
             flex: 1;
@@ -319,4 +318,8 @@ const onScroll = ()=>{
             grid-row: 3/4;
             grid-column: 3/4;
         }
+
+    .endspacer {
+        min-height: 50vh;
+    }
 </style>
