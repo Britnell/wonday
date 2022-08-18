@@ -1,7 +1,6 @@
 <script>
 import { spring } from 'svelte/motion';
 
-export let mouse = {x:0,y:0};
 export let target;
 export let logo = 'logo';
 export let img;
@@ -12,11 +11,10 @@ let following = false;
 const checkForFollow = ()=> {
     if(!ref) return;
     if(!following){
-        let rect = ref.getBoundingClientRect();
-        
-        if(mouse.y > rect.y) {
+        let rect = ref.getBoundingClientRect();        
+
+        if(rect.y < window.innerHeight * 0.25) {
             following = true;
-            let rect = ref.getBoundingClientRect();
             let initial = {
                 x: rect.x + rect.width/2 + window.scrollX,
                 y: rect.y + rect.height/2 + window.scrollY
@@ -32,7 +30,7 @@ const checkForFollow = ()=> {
     }
 }
 
-$: checkForFollow(mouse,ref);
+$: checkForFollow(ref, target);
 
 const update = ()=>{
     if(!following) return;    

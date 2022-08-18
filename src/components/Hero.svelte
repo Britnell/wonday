@@ -95,14 +95,15 @@
     .left, .right {
         flex: 1;
         height: 100%;
+        --g1: transparent 10vw;
+        --g2: white 15vw;
+        z-index: 2;
     }
     .left {
-        background: linear-gradient(to left, transparent 100px, white 200px);
-        z-index: 2;
+        background: linear-gradient(to left, var(--g1), var(--g2));
     }
     .right {
-        background: linear-gradient(to right, transparent 100px, white 200px);
-        z-index: 2;
+        background: linear-gradient(to right, var(--g1), var(--g2));
     }
 
 
