@@ -86,22 +86,22 @@ const onScroll = ()=>{
         </div>
         <div class="htmlcss">
             <div class="html">
-                <Logo logo="HTML" img="/logos/html.svg" target={trail[10]} />
+                <Logo logo="HTML" img="logos/html.svg" target={trail[10]} />
             </div>
             <div class="css">
-                <Logo logo="CSS" img="/logos/css.svg" target={trail[30]} />
+                <Logo logo="CSS" img="logos/css.svg" target={trail[30]} />
             </div>
         </div>
         <div class="frontend">
             <h3 class="front">front</h3>
             <div class="end">
                 <h3>end</h3>
-                <Logo logo="React" img="/logos/react.svg" target={trail[70]} />
+                <Logo logo="React" img="logos/react.svg" target={trail[70]} />
             </div>
         </div>
         <div class="andjs">
             <div class="js">
-                <Logo logo="js" img="/logos/js.svg" target={trail[50]} />
+                <Logo logo="js" img="logos/js.svg" target={trail[50]} />
             </div>
             <h3 class="amp">&amp;</h3>
         </div>
