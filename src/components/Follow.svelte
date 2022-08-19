@@ -323,6 +323,6 @@ const onScroll = ()=>{
         }
 
     .endspacer {
-        min-height: 50vh;
+        min-height: 60vh;
     }
 </style>

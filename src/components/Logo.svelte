@@ -36,7 +36,7 @@ const checkForFollow = ()=> {
     if(!mouse) return;
 
     let rect = ref.getBoundingClientRect();
-
+    
     if(follow==='mouse'){
         const vec = {
             x: rect.x + rect.width/2 - mouse.client.x,
