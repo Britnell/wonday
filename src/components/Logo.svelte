@@ -1,43 +1,70 @@
 <script>
 import { spring } from 'svelte/motion';
 
-export let target;
-export let logo = 'logo';
 export let img;
+export let alt = 'logo';
+export let follow = 'mouse';
+
+export let mouse;
+export let trail;
+export let tail;
 
 let ref, coords;
 let following = false;
+let tailPos;
+
+const startFollowing = (rect)=>{
+    following = true;
+    tailPos = $tail;
+    tail.update(t=>t+20);
+
+    let initial = {
+        x: rect.x + rect.width/2 + window.scrollX,
+        y: rect.y + rect.height/2 + window.scrollY
+    }
+    coords = spring({ 
+        x: initial.x, 
+        y: initial.y
+    }, {
+        stiffness: 0.01,
+        damping: 0.1
+    });
+}
 
 const checkForFollow = ()=> {
     if(!ref) return;
-    if(!following){
-        let rect = ref.getBoundingClientRect();        
+    if(!mouse) return;
 
-        if(rect.y < window.innerHeight * 0.25) {
-            following = true;
-            let initial = {
-                x: rect.x + rect.width/2 + window.scrollX,
-                y: rect.y + rect.height/2 + window.scrollY
-            }
-            coords = spring({ 
-                x: initial.x, 
-                y: initial.y
-            }, {
-                stiffness: 0.01,
-                damping: 0.1
-            });
+    let rect = ref.getBoundingClientRect();
+
+    if(follow==='mouse'){
+        const vec = {
+            x: rect.x + rect.width/2 - mouse.client.x,
+            y: rect.y + rect.width/2 - mouse.client.y
         }
+        const dist = Math.abs(vec.x * vec.x + vec.y * vec.y );
+        if(dist < 5000) startFollowing(rect);
     }
+
+    if(follow==='auto'){
+        let h = rect.y + rect.height/2
+        if(mouse.client.y > h) startFollowing(rect);
+    }
+
 }
 
-$: checkForFollow(ref, target);
+
 
 const update = ()=>{
-    if(!following) return;    
-    if(target) coords.set(target);
+    if(!following) {
+        checkForFollow();
+        return;
+    }
+    let pos = trail[tailPos]
+    if(pos) coords.set(pos);
 }
 
-$: update(target);
+$: update(mouse);
 
 </script>
 
@@ -48,7 +75,7 @@ $: update(target);
         style={`left: ${following?`${$coords.x}px` : 'unset' }; `+
                `top: ${following?`${$coords.y}px` : 'unset' }; `}
     >
-     <img src={img} alt={logo} />
+     <img src={img} alt={alt} />
     </div>
 </div>
 

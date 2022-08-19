@@ -1,8 +1,11 @@
 <script>
+import { writable } from 'svelte/store';
 import Logo from './Logo.svelte'
 
 let trail = [];
 const Len = 400;
+const tail = writable(10);
+
 let lastScroll;
 
 let ref;
@@ -86,22 +89,22 @@ const onScroll = ()=>{
         </div>
         <div class="htmlcss">
             <div class="html">
-                <Logo logo="HTML" img="logos/html.svg" target={trail[10]} />
+                <Logo mouse={mouse} tail={tail} trail={trail}  alt="HTML" follow='auto' img="logos/html.svg"  />
             </div>
             <div class="css">
-                <Logo logo="CSS" img="logos/css.svg" target={trail[30]} />
+                <Logo mouse={mouse} tail={tail} trail={trail} alt="CSS" follow='auto' img="logos/css.svg"  />
             </div>
         </div>
         <div class="frontend">
             <h3 class="front">front</h3>
             <div class="end">
                 <h3>end</h3>
-                <Logo logo="React" img="logos/react.svg" target={trail[70]} />
+                <Logo mouse={mouse} tail={tail} trail={trail} alt="React" img="logos/react.svg"  />
             </div>
         </div>
         <div class="andjs">
             <div class="js">
-                <Logo logo="js" img="logos/js.svg" target={trail[50]} />
+                <Logo mouse={mouse} tail={tail} trail={trail} alt="js" follow='auto' img="logos/js.svg"  />
             </div>
             <h3 class="amp">&amp;</h3>
         </div>
@@ -109,13 +112,13 @@ const onScroll = ()=>{
             <div class="creative">
                 <h3>creative</h3>
                 <div class="logos">
-                    <Logo logo="sass" img="logos/sass.svg" target={trail[90]} />
-                    <Logo logo="tailwind" img="logos/tailwind.svg" target={trail[110]} />
+                    <Logo mouse={mouse} tail={tail} trail={trail} alt="sass" img="logos/sass.svg"  />
+                    <Logo mouse={mouse} tail={tail} trail={trail} alt="tailwind" img="logos/tailwind.svg"  />
                 </div>
             </div>
             <div class="technologist">
-                <Logo logo="typescript" img="logos/ts.svg" target={trail[130]} />
-                <Logo logo="npm" img="logos/npm.svg" target={trail[150]} />
+                <Logo mouse={mouse} tail={tail} trail={trail} alt="typescript" img="logos/ts.svg"  />
+                <Logo mouse={mouse} tail={tail} trail={trail} alt="npm" img="logos/npm.svg"  />
                 <h3>technologist</h3>
                 </div>
                 <div class="fullstackrow">
@@ -124,31 +127,31 @@ const onScroll = ()=>{
                         <h3 class="stack">stack ?</h3>
                     </div>
                     <div class="logos">
-                        <Logo logo="next" img="logos/next.png" target={trail[170]} />
-                        <Logo logo="remix" img="logos/remix.svg" target={trail[190]} />
-                        <Logo logo="prisma" img="logos/prisma.svg" target={trail[210]} />
-                        <Logo logo="supabase" img="logos/supabase.svg" target={trail[230]} />
+                        <Logo mouse={mouse} tail={tail} trail={trail} alt="next" img="logos/next.png"  />
+                        <Logo mouse={mouse} tail={tail} trail={trail} alt="remix" img="logos/remix.svg"  />
+                        <Logo mouse={mouse} tail={tail} trail={trail} alt="prisma" img="logos/prisma.svg"  />
+                        <Logo mouse={mouse} tail={tail} trail={trail} alt="supabase" img="logos/supabase.svg"  />
                     </div>
                 </div>
                 <div class="more">
-                    <Logo logo="storyblok" img="logos/storyblok.svg" target={trail[250]} />
+                    <Logo mouse={mouse} tail={tail} trail={trail} alt="storyblok" img="logos/storyblok.svg"  />
                     <div class="headless">
                         <h3>Headless CMS</h3>
                         <h3>& Cdn</h3>
                     </div>
-                    <Logo logo="vercel" img="logos/vercel.svg" target={trail[270]} />
-                    <Logo logo="netlify" img="logos/netlify.svg" target={trail[290]} />
+                    <Logo mouse={mouse} tail={tail} trail={trail} alt="vercel" img="logos/vercel.svg"  />
+                    <Logo mouse={mouse} tail={tail} trail={trail} alt="netlify" img="logos/netlify.svg"  />
                     </div>
                     <div class="cool">
                     <div class="logos">
                         <div class="astro">
-                            <Logo logo="astro" img="logos/astro.svg" target={trail[310]} />
+                            <Logo mouse={mouse} tail={tail} trail={trail} alt="astro" img="logos/astro.svg"  />
                         </div>
                         <div class="svelte">
-                            <Logo logo="svelte" img="logos/svelte.svg" target={trail[330]} />
+                            <Logo mouse={mouse} tail={tail} trail={trail} alt="svelte" img="logos/svelte.svg"  />
                         </div>
                         <div class="solid">
-                            <Logo logo="solid" img="logos/solid.svg" target={trail[350]} />
+                            <Logo mouse={mouse} tail={tail} trail={trail} alt="solid" img="logos/solid.svg"  />
                         </div>
                     </div>
                     <h3>Then there’s the new kids on the block 👀</h3>
