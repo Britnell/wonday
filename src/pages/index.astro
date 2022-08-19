@@ -5,6 +5,7 @@ import Meta from "../layouts/Meta.astro";
 import Hero from "../components/Hero.svelte";
 import Follow from "../components/Follow.svelte";
 import Top from "../components/Top.svelte";
+import End from "../components/End.svelte";
 ---
 
 <Html>
@@ -15,11 +16,12 @@ import Top from "../components/Top.svelte";
     />
   </Fragment>
   <Layout>
-    <Fragment>
+    <>
       <Hero client:load />
       <Top client:visible />
       <Follow client:idle />
-    </Fragment>
+      <End client:visible />
+    </>
   </Layout>
 
   <style>
