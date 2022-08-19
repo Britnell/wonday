@@ -1,4 +1,7 @@
 <script>
+    // TODO
+    // - [ ] use rem in hero
+
 	import { onMount } from 'svelte';
 
     let initialDelay = 100;
@@ -85,7 +88,7 @@
         justify-content: center;
         overflow: hidden;
 
-        height: 600px;
+        height: 500px;
     }
 
     .init {
@@ -260,7 +263,10 @@
     
     
     .y {
-        --y-slide: translateX(300px);
+        --y-dist: 30vw;
+        --y-hop-s: -5vw;
+        --y-hop-l: -10vw;
+        
      
         
         --t-b: .25s;
@@ -271,7 +277,7 @@
     }
 
     .init .y {
-        transform: var(--y-slide);
+        transform: translateX(var(--y-dist));
     }
     .out .y {
         animation: y_bounce_out var(--t-b) calc(2 * var(--t-b-s) + var(--t-delay)) cubic-bezier(0, 0, 0.18, 1) 6 alternate, 
@@ -290,33 +296,33 @@
     
     @keyframes y_bounce_out_s {
         to {
-            transform: translateY(-50px);
+            transform: translateY(var(--y-hop-s));
         }
     }
     @keyframes y_bounce_in_s {
         to {
-            transform: translateY(-50px);
+            transform: translateY(var(--y-hop-s));
         }
     }
     @keyframes y_bounce_out {
         to {
-            transform: translateY(-100px);
+            transform: translateY(var(--y-hop-l));
         }
     }
     @keyframes y_bounce_in {
         to {
-            transform: translateY(-100px);
+            transform: translateY(var(--y-hop-l));
         }
     }
     
     @keyframes y_slide_in {
         from {
-            transform: var(--y-slide);
+            transform: translateX(var(--y-dist));;
         }
     }
     @keyframes y_slide_out {
         to {
-            transform: var(--y-slide);
+            transform: translateX(var(--y-dist));;
         }
     }
 
