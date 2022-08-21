@@ -8,7 +8,7 @@ let ref;
 
 const getBottomDist = (el)=>{
   let rect = el.getBoundingClientRect();
-  return window.innerHeight - (rect.y + rect.height);
+  return window.innerHeight - rect.y - rect.height;
 }
 
 onMount(()=>{
@@ -26,8 +26,8 @@ onMount(()=>{
 
 </script>
 
-<div bind:this={ref} class={`speechbubble shape-${shape} ${reveal?'reveal':'hidden'}`} >
-  <div class="bubble">
+<div class={`speechbubble shape-${shape} ${reveal?'reveal':'hidden'}`} >
+  <div bind:this={ref} class="bubble">
       {#if shape === "a"} 
         <svg
           width="495"

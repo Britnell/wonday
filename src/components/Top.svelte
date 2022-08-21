@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class="bubble">
-    <Bubble shape="a"  >
+    <Bubble shape="a" thresh={20}  >
       <div class="content">
         <h3>
           <span class="hi">Hi</span>I'm a ...
@@ -25,14 +25,8 @@
     margin-right: 10%;
     margin-left: auto;
   }
-  @media (max-width: 700px){
-    .bubble {
-      margin: auto
-    }
-  }
-
   .content {
-    max-width: calc(80vw);
+    max-width: 60vw;
     width: 500px;
     font-family: "Roboto", sans-serif;
   }
@@ -45,4 +39,18 @@
     line-height: 1.0;
     display: block;
   }
+
+  
+  @media (max-width: 700px){
+    .bubble {
+      margin: auto
+    }
+    .content .hi {
+      font-size: 1.8em;
+    }
+    .content h3 {
+      font-size: 10vw;
+    }
+  }
+
 </style>

@@ -412,9 +412,10 @@ const onScroll = ()=>{
             display: flex;
             column-gap: 20px;
         }
-        
+
     .cool {
         flex-flow: column-reverse;
+        row-gap: 20px;
     }
         .cool h3 {
             max-width: 80%;

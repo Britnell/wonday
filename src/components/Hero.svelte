@@ -88,7 +88,8 @@
         justify-content: center;
         overflow: hidden;
 
-        height: 500px;
+        height: 60vh;
+        max-height: 500px;
         font-size: 14vw;
     }
 

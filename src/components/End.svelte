@@ -6,7 +6,7 @@
 
 <div class="container">
         <div class="more">
-            <Bubble shape="b" thresh={0} >
+            <Bubble shape="b" thresh={20} >
                 <div class="content">
                     <p>
                         There's currently a lot of exciting things happening in web development. 
@@ -31,13 +31,14 @@
 
   .content {
     width: 80vw;
+    max-width: 600px;
 
-    height: 290px;
+    height: 39vw;
     font-family: "Roboto", sans-serif;
-    font-size: 4vw;
+    font-size: min(4vw, 30px);
 
     display: flex;
-    align-items: center;
+    /* align-items: center; */
   }
 
   .outro {
