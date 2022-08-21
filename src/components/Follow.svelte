@@ -139,8 +139,10 @@ const onScroll = ()=>{
                         <h3>Headless CMS</h3>
                         <h3>& Cdn</h3>
                     </div>
-                    <Logo mouse={mouse} tail={tail} trail={trail} alt="vercel" img="logos/vercel.svg"  />
-                    <Logo mouse={mouse} tail={tail} trail={trail} alt="netlify" img="logos/netlify.svg"  />
+                    <div class="logos">
+                        <Logo mouse={mouse} tail={tail} trail={trail} alt="vercel" img="logos/vercel.svg"  />
+                        <Logo mouse={mouse} tail={tail} trail={trail} alt="netlify" img="logos/netlify.svg"  />
+                    </div>
                     </div>
                     <div class="cool">
                     <div class="logos">
@@ -352,6 +354,10 @@ const onScroll = ()=>{
         grid-column: 10 / 13;
         grid-row: 1 / 6;
         flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: space-around;
+        gap: 0;
     }
 
     .frontend {
@@ -369,8 +375,8 @@ const onScroll = ()=>{
         grid-column: 1 / 4;
         grid-row: 6 / 11;
         flex-direction: column;
-        justify-content: flex-start;
-        row-gap: 20px;
+        justify-content: space-evenly;
+        row-gap: 0;
     }   
         .amp {
             font-size: 1.3em;
@@ -398,7 +404,28 @@ const onScroll = ()=>{
         .fullstack .stack {
             font-size: 0.95em;
         }
+    
+    .more {
+        flex-direction: column;
+    }
+        .more .logos {
+            display: flex;
+            column-gap: 20px;
+        }
         
+    .cool {
+        flex-flow: column-reverse;
+    }
+        .cool h3 {
+            max-width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .cool .logos {
+            display: flex;
+            justify-content: center;
+            column-gap: 20px;
+        }
 }
 
 </style>
