@@ -97,9 +97,6 @@ onMount(()=>{
     animation: svg_dash var(--t-bubble) ease-out forwards;
   }
   
-
-
-  
   .shape-a .speech, .shape-b .speech {
     padding-top: 13%;
   }

@@ -167,6 +167,9 @@ const onScroll = ()=>{
 
 .skills {
     min-height: 100vh;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: clamp(50px, 20vw, 200px);
 }
 
 .skills h3 {
@@ -180,21 +183,21 @@ const onScroll = ()=>{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     overflow: hidden;
+
+    padding: 20px;
+    gap: .1em;
 }
 
-.grid > div {
-    padding: 10px;
-}
 
 .webdev {
     grid-column: 1 / 7;
     grid-row: 1 / 5;
 }
     .web {
-        font-size: 22vw;
+        font-size: 1.2em;
     }
     .dev {
-        font-size: 10vw;
+        font-size: .5em;
     }
 
 .htmlcss {
@@ -202,7 +205,7 @@ const onScroll = ()=>{
     grid-row: 1;
 
     display: flex;
-    gap: 100px;
+    gap: .5em;
 }
 
 .frontend {
@@ -210,14 +213,14 @@ const onScroll = ()=>{
     grid-row: 2 / 7;
 }
     .front {
-        font-size: calc(16vw);
+        font-size: .8em;
     }
     .end {
         display: flex;
         align-items: center;
     }
     .end h3 {
-        font-size: 20vw;
+        font-size: 1em;
     }
 
 .andjs {
@@ -228,21 +231,22 @@ const onScroll = ()=>{
     justify-content: space-between;
 }
     .amp {
-        font-size: 20vw;
+        font-size: 1em;
     }
 
 .creativetech {
-    grid-column: 1 / -1;
+    grid-column: 1 / 13;
     grid-row: span 2;
 
 }
+
 
     .creative {
         display: flex;
         justify-content: space-between;
     }
     .creative h3 {
-        font-size: 22vw;
+        font-size: 1.1em;
     }
     .creative .logos {
         flex: 1;
@@ -258,11 +262,11 @@ const onScroll = ()=>{
         align-items: center;
     }
     .technologist h3 {
-        font-size: 12vw;
+        font-size: .6em;
     }
 
     .fullstackrow {
-        margin-top: 100px;
+        margin-top: .4em;
         display: flex;
     }
         .fullstack {
@@ -270,7 +274,7 @@ const onScroll = ()=>{
             flex-direction: column;
         }
         .fullstack h3 {
-            font-size: 18vw;
+            font-size: .9em;
         }
 
         .fullstackrow .logos {
@@ -281,7 +285,7 @@ const onScroll = ()=>{
         }
     
     .more {
-        margin-top: 100px;
+        margin-top: .4em;
         display: flex;
         align-items: center;
     }
@@ -292,19 +296,19 @@ const onScroll = ()=>{
             flex-direction: column;
         }
         .headless h3 {
-            font-size: 8vw;
+            font-size: .4em;
             text-transform: capitalize;
             text-align: center;
         }
     
     .cool {
-        margin-top: 100px;
+        margin-top: .4em;
         display: flex;
     }
 
         .cool h3 {
             flex: 2;
-            font-size: 6vw;
+            font-size: .3em;
             text-transform: capitalize;
         }
         .logos {
@@ -325,4 +329,76 @@ const onScroll = ()=>{
     .endspacer {
         min-height: 60vh;
     }
+
+
+    
+@media (max-width: 700px){
+    .grid {
+        gap: 4px
+    }
+
+    .webdev {
+        grid-column: 1 / 10;
+        grid-row: 1 / 6;
+    }
+    .web {
+        font-size: 1.7em;
+    }
+    .dev {
+        font-size: .7em;
+    }
+
+    .htmlcss {
+        grid-column: 10 / 13;
+        grid-row: 1 / 6;
+        flex-direction: column;
+    }
+
+    .frontend {
+        grid-column: 4 / 13;
+        grid-row: 6 / 11;
+    }
+        .front {
+            font-size: 1.2em;
+        }
+        .end {
+            font-size: 1.2em;
+        }
+    
+    .andjs {
+        grid-column: 1 / 4;
+        grid-row: 6 / 11;
+        flex-direction: column;
+        justify-content: flex-start;
+        row-gap: 20px;
+    }   
+        .amp {
+            font-size: 1.3em;
+        }
+        .creative {
+            align-items: flex-end;
+        }
+        .creative h3 {
+            font-size: .9em;
+        }
+
+    .technologist {
+        flex-flow: wrap-reverse;
+        justify-content: center;
+        column-gap: 20px;
+    }
+
+    .fullstackrow .logos {
+        grid-template: 1fr 1fr 1fr / 1fr;
+        gap: 10px;        
+    }
+        .fullstack .full {
+            font-size: 1.3em;
+        }
+        .fullstack .stack {
+            font-size: 0.95em;
+        }
+        
+}
+
 </style>

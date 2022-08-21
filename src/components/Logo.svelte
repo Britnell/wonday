@@ -82,10 +82,21 @@ $: update(mouse);
 
 <style>
 
-    .logo_container, .logo {
-        width:  100px;
-        height: 100px;    
+    .logo_container {
+        --logosize: 100px;
     }
+    
+    @media (max-width: 700px){
+        .logo_container {
+            --logosize: 14vw;
+        }
+    }
+
+    .logo_container, .logo {
+        width:  var(--logosize);
+        height: var(--logosize);    
+    }
+
     .logo {
         z-index: -1;
         position: relative;

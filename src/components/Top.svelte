@@ -25,8 +25,14 @@
     margin-right: 10%;
     margin-left: auto;
   }
+  @media (max-width: 700px){
+    .bubble {
+      margin: auto
+    }
+  }
 
   .content {
+    max-width: calc(80vw);
     width: 500px;
     font-family: "Roboto", sans-serif;
   }

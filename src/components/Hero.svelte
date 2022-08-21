@@ -89,6 +89,7 @@
         overflow: hidden;
 
         height: 500px;
+        font-size: 14vw;
     }
 
     .init {
@@ -98,8 +99,8 @@
     .left, .right {
         flex: 1;
         height: 100%;
-        --g1: transparent 10vw;
-        --g2: white 15vw;
+        --g1: transparent .4em;
+        --g2: white .89em;
         z-index: 2;
     }
     .left {
@@ -114,7 +115,7 @@
         position: relative;
         font-family: 'Roboto', sans-serif;
         font-weight: 400;        
-        font-size: 16vw;
+        font-size: 14vw;
         
         margin: 0;
         display: flex;
@@ -224,33 +225,35 @@
     }
 
 
-    @keyframes o_roll_in {
-        from {
-            transform-origin: var(--tf-origin);
-            transform: translateX(-600px) rotate(-1080deg);
-        }
-    }
-    @keyframes o_roll_out {
-        to {
-            transform-origin: var(--tf-origin);
-            transform: translateX(-600px) rotate(-1080deg);
-        }
-    }
-
     .o {
-
         --tf-origin: 50% 55%;
+        --dist-o: -3.0em;
+        --ang-o: -850deg;
+
         transform-origin: var(--tf-origin);
     }    
     
     .init .o {
-        transform: translateX(-600px);
+        transform: translateX(var(--dist-o));
     }
     .in .o {
         animation: o_roll_in 1.6s .6s ease-in-out both;
     }    
     .out .o {
         animation: o_roll_out 1.6s .3s ease-in-out both;
+    }
+
+    @keyframes o_roll_in {
+        from {
+            transform-origin: var(--tf-origin);
+            transform: translateX(var(--dist-o)) rotate(var(--ang-o));
+        }
+    }
+    @keyframes o_roll_out {
+        to {
+            transform-origin: var(--tf-origin);
+            transform: translateX(var(--dist-o)) rotate(var(--ang-o));
+        }
     }
     
     .o .hov {
@@ -263,32 +266,32 @@
     
     
     .y {
-        --y-dist: 30vw;
-        --y-hop-s: -5vw;
-        --y-hop-l: -10vw;
-        
-     
-        
-        --t-b: .25s;
-        --t-b-s: .2s;
-        --t-total: calc( 6 * var(--t-b) + 2 * var(--t-b-s) );
+        --y-dist: 2em;
+        --y-hop-s: -.3em;
+        --y-hop-l: -.7em;
+
+        --t-hop-s: .2s;
+        --t-hop-l: .25s;
+
+        --t-total: calc( 6 * var(--t-hop-l) + 2 * var(--t-hop-s) );
         --t-delay: .6s;
-        /* delay + 6 --t-b + 2 --t-b-s */
+
+        --bounce-bezier: cubic-bezier(0, 0, 0.18, 1);
     }
 
     .init .y {
         transform: translateX(var(--y-dist));
     }
     .out .y {
-        animation: y_bounce_out var(--t-b) calc(2 * var(--t-b-s) + var(--t-delay)) cubic-bezier(0, 0, 0.18, 1) 6 alternate, 
-        y_bounce_out_s var(--t-b-s) var(--t-delay)  cubic-bezier(0, 0, 0.18, 1) 2 alternate;
+        animation: y_bounce_out var(--t-hop-l) calc(2 * var(--t-hop-s) + var(--t-delay)) var(--bounce-bezier) 6 alternate, 
+        y_bounce_out_s var(--t-hop-s) var(--t-delay)  var(--bounce-bezier) 2 alternate;
     }
     .out .y .slide {
         animation: y_slide_out var(--t-total) var(--t-delay) linear both;
     }
     .in .y {
-        animation: y_bounce_in var(--t-b)  var(--t-delay) cubic-bezier(0, 0, 0.18, 1) 6 alternate,
-        y_bounce_in_s var(--t-b-s) calc(6 * var(--t-b) +  var(--t-delay)) cubic-bezier(0, 0, 0.18, 1) 2 alternate;
+        animation: y_bounce_in var(--t-hop-l)  var(--t-delay) var(--bounce-bezier) 6 alternate,
+        y_bounce_in_s var(--t-hop-s) calc(6 * var(--t-hop-l) +  var(--t-delay)) var(--bounce-bezier) 2 alternate;
     }
     .in .y .slide {
         animation: y_slide_in var(--t-total) var(--t-delay) linear both;
