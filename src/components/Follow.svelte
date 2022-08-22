@@ -114,6 +114,7 @@ const onScroll = ()=>{
                 <div class="logos">
                     <Logo mouse={mouse} tail={tail} trail={trail} alt="sass" img="logos/sass.svg"  />
                     <Logo mouse={mouse} tail={tail} trail={trail} alt="tailwind" img="logos/tailwind.svg"  />
+                    <Logo mouse={mouse} tail={tail} trail={trail} alt="figma" img="logos/figma.svg"  />
                 </div>
             </div>
             <div class="technologist">
@@ -134,30 +135,30 @@ const onScroll = ()=>{
                     </div>
                 </div>
                 <div class="more">
-                    <Logo mouse={mouse} tail={tail} trail={trail} alt="storyblok" img="logos/storyblok.svg"  />
+                    <div class="logos_before">
+                        <Logo mouse={mouse} tail={tail} trail={trail} alt="storyblok" img="logos/storyblok.svg"  />
+                        <Logo mouse={mouse} tail={tail} trail={trail} alt="astro" img="logos/astro.svg"  />
+                    </div>
                     <div class="headless">
                         <h3>Headless CMS</h3>
-                        <h3>& Cdn</h3>
+                        <h3>SSG & Cdn</h3>
                     </div>
-                    <div class="logos">
+                    <div class="logos_after">
                         <Logo mouse={mouse} tail={tail} trail={trail} alt="vercel" img="logos/vercel.svg"  />
                         <Logo mouse={mouse} tail={tail} trail={trail} alt="netlify" img="logos/netlify.svg"  />
                     </div>
                     </div>
                     <div class="cool">
-                    <div class="logos">
-                        <div class="astro">
-                            <Logo mouse={mouse} tail={tail} trail={trail} alt="astro" img="logos/astro.svg"  />
+                        <div class="logos">
+                            <div class="svelte">
+                                <Logo mouse={mouse} tail={tail} trail={trail} alt="svelte" img="logos/svelte.svg"  />
+                            </div>
+                            <div class="solid">
+                                <Logo mouse={mouse} tail={tail} trail={trail} alt="solid" img="logos/solid.svg"  />
+                            </div>
                         </div>
-                        <div class="svelte">
-                            <Logo mouse={mouse} tail={tail} trail={trail} alt="svelte" img="logos/svelte.svg"  />
-                        </div>
-                        <div class="solid">
-                            <Logo mouse={mouse} tail={tail} trail={trail} alt="solid" img="logos/solid.svg"  />
-                        </div>
+                        <h3>Then there’s the new kids on the block 👀</h3>
                     </div>
-                    <h3>Then there’s the new kids on the block 👀</h3>
-                </div>
             <div class="endspacer"></div>
         </div>
     </div>
@@ -246,6 +247,7 @@ const onScroll = ()=>{
     .creative {
         display: flex;
         justify-content: space-between;
+        align-items: flex-end;
     }
     .creative h3 {
         font-size: 1.1em;
@@ -302,6 +304,15 @@ const onScroll = ()=>{
             text-transform: capitalize;
             text-align: center;
         }
+        .more .logos_before {
+            display: flex;
+            row-gap: 20px;
+        }
+        .more .logos_after {
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+        }
     
     .cool {
         margin-top: .4em;
@@ -313,21 +324,17 @@ const onScroll = ()=>{
             font-size: .3em;
             text-transform: capitalize;
         }
-        .logos {
+        .cool .logos {
             flex: 1;
 
             display: grid;
             grid-template: repeat(3,100px) / repeat(3,100px);
         }
-        .svelte {
+        .solid {
             grid-row: 2/3;
             grid-column: 2/3;
         }
-        .solid {
-            grid-row: 3/4;
-            grid-column: 3/4;
-        }
-
+        
     .endspacer {
         min-height: 60vh;
     }
