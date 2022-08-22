@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Html from "../layouts/Html.astro";
 import Meta from "../layouts/Meta.astro";
+import Worklogo from "../components/Worklogo.astro";
 ---
 
 <Html>
@@ -13,68 +14,59 @@ import Meta from "../layouts/Meta.astro";
   </Fragment>
   <Layout>
     <div class="max-w-3xl mx-auto">
-      <h1 class="text-7xl mt-8">Work</h1>
-      <p class="text-lg max-w-xl mt-5">
-        An ex electronic engineer, I have been working as Creative Technologist™
-        for 5 years and fallen quite naturally into web development.
-      </p>
+      <div class="mb-20">
+        <h1 class="text-7xl mt-8">Work</h1>
+        <p class="text-lg max-w-xl mt-5">
+          An ex electronic engineer, I have been working as Creative
+          Technologist™ for 5 years and fallen quite naturally into web
+          development.
+        </p>
+      </div>
       <div class="previous">
-        <h3 class="my-8 text-center text-xl">I have worked for</h3>
+        <h3 class="my-8 text-center text-xl">I've worked for</h3>
         <div class="logos grid grid-cols-2 grid-rows-[10vw_10vw] gap-10 mb-16">
           <div>
-            <a href="https://www.nio.com/">
-              <img src="/logos/nio.png" alt="nio" />
-            </a>
+            <Worklogo src="/logos/nio.png" link="https://www.nio.com/" alt="nio"
+            />
           </div>
           <div>
-            <a href="https://www.designaffairs.com/">
-              <img
-                src="/logos/desaff.png"
-                alt="design affairs (part of accenture)"
-              />
-            </a>
+            <Worklogo
+              src="/logos/desaff.png"
+              link="https://www.designaffairs.com/"
+              alt="design affairs"
+            />
           </div>
           <div>
-            <a href="makery.de/">
-              <img src="/logos/makery.png" alt="makery gmbh" />
-            </a>
+            <Worklogo
+              src="/logos/makery.png"
+              link="https://www.makery.de/"
+              alt="Makery gmbh"
+            />
           </div>
           <div>
-            <a href="madebyon.com/">
-              <img src="/logos/on.png" alt="on" />
-            </a>
+            <Worklogo
+              src="/logos/on.png"
+              link="https://www.madebyon.com/"
+              alt="ON - web design"
+            />
           </div>
         </div>
       </div>
-      <div class="text-center mb-16">
-        <p>For a portfolio of professional work,</p>
-        <p>
-          please <a class="p-1 bg-gray-400" href="#contact">get in touch</a>
-        </p>
+      <div class="flex justify-center">
+        <div class="px-8 py-4 text-center bg-gray-300 leading-7">
+          <p>For a portfolio of professional work,</p>
+          <p>
+            please <a class="p-1 bg-gray-800 text-white" href="#contact"
+              >get in touch
+            </a>
+          </p>
+        </div>
       </div>
       <div class="spacer"></div>
       <div class="contact">
         <h2 id="contact">Get in touch</h2>
       </div>
-      <div class="spacer"></div>
+      <div class="h-80"></div>
     </div>
   </Layout>
-
-  <style>
-    .logos img {
-      height: 100%;
-      width: 100%;
-      object-fit: contain;
-    }
-
-    .professional a {
-      background-color: #ddd;
-      padding: 0.2em;
-      border-radius: 0.2em;
-    }
-
-    .spacer {
-      height: 50vh;
-    }
-  </style>
 </Html>
