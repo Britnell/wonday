@@ -12,15 +12,15 @@ import Meta from "../layouts/Meta.astro";
     />
   </Fragment>
   <Layout>
-    <div class="page">
-      <h1>Work</h1>
-      <p class="p1">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-7xl mt-8">Work</h1>
+      <p class="text-lg max-w-xl mt-5">
         An ex electronic engineer, I have been working as Creative Technologist™
         for 5 years and fallen quite naturally into web development.
       </p>
       <div class="previous">
-        <h3>I have worked for</h3>
-        <div class="logos">
+        <h3 class="my-8 text-center text-xl">I have worked for</h3>
+        <div class="logos grid grid-cols-2 grid-rows-[10vw_10vw] gap-10 mb-16">
           <div>
             <a href="https://www.nio.com/">
               <img src="/logos/nio.png" alt="nio" />
@@ -46,9 +46,11 @@ import Meta from "../layouts/Meta.astro";
           </div>
         </div>
       </div>
-      <div class="professional">
+      <div class="text-center mb-16">
         <p>For a portfolio of professional work,</p>
-        <p>please <a href="#contact">get in touch</a></p>
+        <p>
+          please <a class="p-1 bg-gray-400" href="#contact">get in touch</a>
+        </p>
       </div>
       <div class="spacer"></div>
       <div class="contact">
@@ -59,47 +61,10 @@ import Meta from "../layouts/Meta.astro";
   </Layout>
 
   <style>
-    .page {
-      max-width: 800px;
-      margin: 0 auto;
-
-      line-height: 1.5;
-    }
-
-    .page h1 {
-      margin-top: 20px;
-      font-size: 60px;
-    }
-    .page p {
-      font-size: 18px;
-    }
-
-    .p1 {
-      max-width: 600px;
-    }
-
-    .previous h3 {
-      margin: 32px 0;
-    }
-
-    .logos {
-      margin-bottom: 60px;
-    }
-    .previous .logos {
-      display: grid;
-      grid-template: repeat(2, 10vw) / 1fr 1fr;
-      gap: 40px;
-    }
-
     .logos img {
       height: 100%;
       width: 100%;
       object-fit: contain;
-    }
-
-    .professional {
-      text-align: center;
-      margin-bottom: 60px;
     }
 
     .professional a {

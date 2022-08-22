@@ -1,12 +1,11 @@
 <script>
 
-    export let link = '#'
+    export let link = '#';
 
 
 </script>
 
 <a class="button" href={link}><slot/></a>
-
 
 <style>
 
