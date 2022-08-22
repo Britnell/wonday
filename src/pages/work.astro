@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Html from "../layouts/Html.astro";
+import Meta from "../layouts/Meta.astro";
+---
+
+<Html>
+  <Fragment slot="meta">
+    <Meta
+      title="Tommy's Website"
+      description="I'm a front-end web developer and this is my personal portfolio website"
+    />
+  </Fragment>
+  <Layout>
+    <div class="page">
+      <h1>Work</h1>
+      <p class="p1">
+        An ex electronic engineer, I have been working as Creative Technologist™
+        for 5 years and fallen quite naturally into web development.
+      </p>
+      <div class="previous">
+        <h3>I have worked for</h3>
+        <div class="logos">
+          <div>
+            <a href="https://www.nio.com/">
+              <img src="/logos/nio.png" alt="nio" />
+            </a>
+          </div>
+          <div>
+            <a href="https://www.designaffairs.com/">
+              <img
+                src="/logos/desaff.png"
+                alt="design affairs (part of accenture)"
+              />
+            </a>
+          </div>
+          <div>
+            <a href="makery.de/">
+              <img src="/logos/makery.png" alt="makery gmbh" />
+            </a>
+          </div>
+          <div>
+            <a href="madebyon.com/">
+              <img src="/logos/on.png" alt="on" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="professional">
+        <p>For a portfolio of professional work,</p>
+        <p>please <a href="#contact">get in touch</a></p>
+      </div>
+      <div class="spacer"></div>
+      <div class="contact">
+        <h2 id="contact">Get in touch</h2>
+      </div>
+      <div class="spacer"></div>
+    </div>
+  </Layout>
+
+  <style>
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+
+      line-height: 1.5;
+    }
+
+    .page h1 {
+      margin-top: 20px;
+      font-size: 60px;
+    }
+    .page p {
+      font-size: 18px;
+    }
+
+    .p1 {
+      max-width: 600px;
+    }
+
+    .previous h3 {
+      margin: 32px 0;
+    }
+
+    .logos {
+      margin-bottom: 60px;
+    }
+    .previous .logos {
+      display: grid;
+      grid-template: repeat(2, 10vw) / 1fr 1fr;
+      gap: 40px;
+    }
+
+    .logos img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .professional {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .professional a {
+      background-color: #ddd;
+      padding: 0.2em;
+      border-radius: 0.2em;
+    }
+
+    .spacer {
+      height: 50vh;
+    }
+  </style>
+</Html>

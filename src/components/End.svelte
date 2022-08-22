@@ -1,5 +1,7 @@
 <script>
     import Bubble from "../components/Bubble.svelte";
+    import Button from "../components/Button.svelte";
+
   </script>
 
 
@@ -19,10 +21,11 @@
         <div class="more">
             <Bubble shape="c" thresh={20}  >
                 <div class="content">
+                    <h3>Who is this guy?</h3>
                     <p>
                         To find out more about me and see some of my work
                     </p>
-                    <a href="/work">See work</a>
+                        <Button link="/demo/work">More</Button>
                 </div>
             </Bubble>
         </div>
@@ -42,22 +45,29 @@
     }
 
     .after .content {
-        width: 80vw;
+        width: 60vw;
         max-width: 600px;
 
-        height: 25vw;
+        height: 27vw;
         font-family: "Roboto", sans-serif;
-        font-size: min(4vw, 30px);
+        font-size: min(3.5vw, 30px);
 
         display: flex;
         /* align-items: center; */
+    }
+    @media (max-width: 700px){
+        .after .content {
+            --bubble-padding: 20px;
+        }
     }
 
     .more {
         margin: 0 auto;
         width: fit-content;
+        margin-top: 100px;
+        
         --bubble-thickness: 2;
-        margin-top: 40px;
+        --button-background: #000;
     }
 
     .more .content {
@@ -65,11 +75,19 @@
         max-width: 400px;
 
         height: 25vw;
+        max-height: 220px;
         font-family: "Roboto", sans-serif;
         font-size: min(4vw, 30px);
 
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
     }
+    .more h3 {
+        width: 100%;
+    }
+
 
   .outro {
     max-width: 700px;

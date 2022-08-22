@@ -4,7 +4,7 @@
 <div class="layout">
   <header>
     <nav class="home">
-      <a href="/">
+      <a href="/demo">
         <span class="icon">
           <svg
             viewBox="0 0 56 56"
@@ -20,12 +20,21 @@
     </nav>
     <nav>
       <ul class="pages">
-        <li><a href="/work">Work</a></li>
-        <li><a href="/about">about</a></li>
+        <li><a href="/demo/work">Work</a></li>
+        <li><a href="/demo/about">about</a></li>
       </ul>
     </nav>
   </header>
+
+  <!-- main page slot -->
   <slot />
+
+  <footer>
+    Built with Astro, Tailwind & Svelte - <a
+      href="https://github.com/Britnell/wonday"
+      >github
+    </a>
+  </footer>
 </div>
 
 <style>
@@ -65,5 +74,17 @@
 
   .home {
     flex: 1;
+  }
+
+  footer {
+    font-size: 14px;
+    background-color: rgb(250, 250, 250);
+    color: rgba(90, 90, 90);
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  footer a {
+    text-decoration: underline;
   }
 </style>

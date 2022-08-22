@@ -83,15 +83,9 @@ $: update(mouse);
 <style>
 
     .logo_container {
-        --logosize: 100px;
+        --logosize: min(100px, 10vw);
     }
     
-    @media (max-width: 700px){
-        .logo_container {
-            --logosize: 14vw;
-        }
-    }
-
     .logo_container, .logo {
         width:  var(--logosize);
         height: var(--logosize);    

@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@astrojs/svelte": "^1.0.0",
+    "@astrojs/tailwind": "^1.0.0",
     "astro": "^1.0.3",
     "svelte": "^3.49.0"
   }

@@ -313,16 +313,30 @@ const onScroll = ()=>{
             flex-direction: column;
             row-gap: 20px;
         }
+
+        
+        .cool .logosy {
+            
+            display: flex;
+            justify-content: center;
+            column-gap: 20px;
+        }
     
     .cool {
         margin-top: .4em;
         display: flex;
+        flex-flow: column-reverse;
+        align-items: center;
+        row-gap: 20px;
     }
 
         .cool h3 {
             flex: 2;
             font-size: .3em;
             text-transform: capitalize;
+            max-width: 80%;
+            margin: 0 auto;
+            text-align: center;
         }
         .cool .logos {
             flex: 1;
@@ -420,20 +434,6 @@ const onScroll = ()=>{
             column-gap: 20px;
         }
 
-    .cool {
-        flex-flow: column-reverse;
-        row-gap: 20px;
-    }
-        .cool h3 {
-            max-width: 80%;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .cool .logos {
-            display: flex;
-            justify-content: center;
-            column-gap: 20px;
-        }
 }
 
 </style>
