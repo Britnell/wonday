@@ -5,7 +5,7 @@
 
 </script>
 
-<a class="button" href={link}><slot/></a>
+<a class="button font-display" href={link}><slot/></a>
 
 <style>
 

@@ -25,7 +25,7 @@
                     <p>
                         To find out more about me and see some of my work
                     </p>
-                        <Button link="/demo/work">More</Button>
+                        <Button link="/demo/work">MORE</Button>
                 </div>
             </Bubble>
         </div>
