@@ -25,7 +25,7 @@
                     <p>
                         To find out more about me and see some of my work
                     </p>
-                        <Button link="/demo/work">MORE</Button>
+                    <a class="button font-display" href="/demo/work">MORE</a>
                 </div>
             </Bubble>
         </div>
@@ -88,6 +88,13 @@
         width: 100%;
     }
 
+    
+    .button {
+        color: var(--button-color,#fff );
+        background-color: var(--button-background,#25a);
+        border-radius: var(--button-border-radius, .5em);
+        padding: var(--button-padding, .2em .4em );
+    }
 
   .outro {
     max-width: 700px;
