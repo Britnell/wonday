@@ -25,7 +25,7 @@
                     <p>
                         To find out more about me and see some of my work
                     </p>
-                    <a class="button font-display" href="/demo/work">MORE</a>
+                    <a class="button font-display" href="/work">MORE</a>
                 </div>
             </Bubble>
         </div>

@@ -3,6 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Html from "../layouts/Html.astro";
 import Meta from "../layouts/Meta.astro";
 import Worklogo from "../components/Worklogo.astro";
+import Email from "../components/Email.svelte";
+import More from "../components/More.svelte";
+import Card from "../components/Card.astro";
 ---
 
 <Html>
@@ -30,28 +33,28 @@ import Worklogo from "../components/Worklogo.astro";
         >
           <div>
             <Worklogo
-              src="/demo/logos/nio.png"
+              src="/logos/nio.png"
               link="https://www.nio.com/"
               alt="nio"
             />
           </div>
           <div>
             <Worklogo
-              src="/demo/logos/desaff.png"
+              src="/logos/desaff.png"
               link="https://www.designaffairs.com/"
               alt="design affairs"
             />
           </div>
           <div>
             <Worklogo
-              src="/demo/logos/makery.png"
+              src="/logos/makery.png"
               link="https://www.makery.de/"
               alt="Makery gmbh"
             />
           </div>
           <div>
             <Worklogo
-              src="/demo/logos/on.png"
+              src="/logos/on.png"
               link="https://www.madebyon.com/"
               alt="Made by ON"
             />
@@ -76,8 +79,8 @@ import Worklogo from "../components/Worklogo.astro";
           <h3 class="text-3xl mb-4 font-display">CSS Variables</h3>
           <p class="pb-2 text-lg">
             I have a little thing for css variables now. I wrote a little
-            section why and how I think they are so great and also created an
-            npm package to animate via CSS variables
+            article on why and how I think they are so great and also created an
+            npm package of React hooks to animate via CSS variables
           </p>
           <div class="flex flex-col items-start">
             <a
@@ -97,17 +100,27 @@ import Worklogo from "../components/Worklogo.astro";
                 CSS variables are the secret sauce in your React components 🌶️
               </span>
             </a>
-            <a
-              class="flex items-center px-4 py-2 hover:bg-gray-200"
-              href="https://www.npmjs.com/package/css-var-animate"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="mr-4">
-                <img class="w-10" src="/demo/logos/npm.svg" alt="npm" />
-              </span>
-              <span class="text-xl">css-var-animate</span>
-            </a>
+            <div class="flex gap-4">
+              <a
+                class="flex items-center px-4 py-2 hover:bg-gray-200"
+                href="https://www.npmjs.com/package/css-var-animate"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="mr-4">
+                  <img class="h-6" src="/logos/npm.svg" alt="npm" />
+                </span>
+                <span class="text-xl">css-var-animate</span>
+              </a>
+              <a
+                class="flex items-center px-4 py-2 hover:bg-gray-200"
+                href="https://css-var-animate.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="text-xl">Package Website</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -129,7 +142,7 @@ import Worklogo from "../components/Worklogo.astro";
               rel="noopener noreferrer"
             >
               <span class="mr-4">
-                <img class="h-6" src="/demo/logos/git.svg" alt="git" />
+                <img class="h-6" src="/logos/git.svg" alt="git" />
               </span>
               <span class="text-xl"> Sketchbook</span>
             </a>
@@ -139,8 +152,11 @@ import Worklogo from "../components/Worklogo.astro";
 
       <div class="mt-20"></div>
 
-      <section class="p-4 bg-gray-100">
-        <h2 id="contact" class="text-4xl font-display text-center mb-4">
+      <section class="p-4">
+        <h2
+          id="contact"
+          class="text-6xl font-display text-center capitalize mb-4"
+        >
           Get in touch
         </h2>
         <div class="flex justify-center items-center gap-8">
@@ -150,7 +166,7 @@ import Worklogo from "../components/Worklogo.astro";
             rel="noopener noreferrer"
           >
             <div class="w-14 h-14 grid place-items-center hover:bg-gray-200">
-              <img class="h-9" src="/demo/logos/git.svg" alt="git" />
+              <img class="h-9" src="/logos/git.svg" alt="git" />
             </div>
           </a>
           <a
@@ -159,22 +175,117 @@ import Worklogo from "../components/Worklogo.astro";
             rel="noopener noreferrer"
           >
             <div class="w-14 h-14 grid place-items-center hover:bg-gray-200">
-              <img class="h-8" src="/demo/logos/linkedin.svg" alt="linkedin" />
+              <img class="h-8" src="/logos/linkedin.svg" alt="linkedin" />
             </div>
           </a>
-          <button onclick="copyEmail">
-            <div class="w-14 h-14 grid place-items-center hover:bg-gray-200">
-              <img class="h-11" src="/demo/logos/email.svg" alt="Email" />
-            </div>
-          </button>
+          <Email client:visible />
         </div>
       </section>
+      <div class="h-10"></div>
+      <More client:idle />
+      <p class="text-2xl max-w-md mx-auto my-12">
+        Ok, there is actually a bit more - Here are some things I did a while
+        ago.
+      </p>
+
+      <div class="sm:columns-2 lg:columns-3 gap-4">
+        <Card
+          link="/ct"
+          img="/media/introduction.png"
+          title="I made this interactive introduction"
+        />
+        <Card
+          link="https://webs.wonday.eu/react/pomodoro/"
+          img="/media/pomodoro.png"
+          title="Pomodoro timer PWA"
+        />
+        <Card
+          link="https://shared-note.vercel.app/"
+          img="/media/note.png"
+          title="Shared note / todo list"
+        />
+
+        <div class="spotify">
+          <h4>Spotify API</h4>
+          <ul>
+            <li>
+              <a href="https://next-album-shelf.vercel.app/" target="_blank">
+                <img src="/media/shelf.png" alt="shelf" />
+                <h4>digital album shelf</h4>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://webs.wonday.eu/html/spotify_doctor.html"
+                target="_blank"
+              >
+                <h4>record label listener</h4>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://webs.wonday.eu/html/spotify_sampler.html"
+                target="_blank"
+              >
+                <h4>Sample beat maker</h4>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <Card
+          link="https://webs.wonday.eu/html/path_gen.html"
+          img="/media/symmetry.png"
+          title="Symmetric Generative Pattern"
+        />
+        <Card
+          link="https://webs.wonday.eu/html/path_gen.html"
+          img="/media/islamic.png"
+          title="Islamic Geometric Pattern"
+        />
+        <Card
+          link="https://webs.wonday.eu/html/paper_hexagonal.html"
+          img="/media/hexagonal.png"
+          title="Hexagonal cellular automaton"
+        />
+        <Card
+          link="https://webs.wonday.eu/html/paper_kolam.html"
+          img="/media/kolam.png"
+          title="Generative Kolam Pattern"
+        />
+
+        <div class="card">
+          <a href="https://webs.wonday.eu/" target="_blank">
+            <h4 class="text-center mt-4">and more at <br /> Webs.Wonday.eu</h4>
+          </a>
+        </div>
+      </div>
       <div class="h-80"></div>
     </main>
-    <script>
-      function copyEmail() {
-        console.log(" email");
-      }
-    </script>
   </Layout>
 </Html>
+
+<style>
+  .card,
+  .spotify {
+    @apply p-1 mb-4 bg-gray-100 hover:bg-gray-400;
+    transition: background 0.4s linear;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .spotify img {
+    @apply mb-2;
+  }
+  .card h4,
+  .spotify h4 {
+    @apply text-lg mb-4;
+  }
+  .card:hover a {
+    text-decoration: underline;
+  }
+
+  .spotify a:hover {
+    text-decoration: underline;
+  }
+</style>

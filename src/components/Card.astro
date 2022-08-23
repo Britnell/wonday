@@ -1,24 +1,35 @@
 ---
 export interface Props {
   title: string;
-  body: string;
-  href: string;
+  link: string;
+  img?: string;
 }
 
-const { href, title, body } = Astro.props as Props;
+const { title, link, img } = Astro.props as Props;
 ---
 
-<li class="link-card">
-  <a href={href}>
-    <h2>
-      {title}
-      <span>&rarr;</span>
-    </h2>
-    <p>
-      {body}
-    </p>
+<article class="card">
+  <a href={link} target="_blank">
+    {img && <img src={img} alt={title} />}
+    <h4>{title}</h4>
   </a>
-</li>
-<style>
+</article>
 
+<style>
+  .card {
+    @apply p-1 mb-4 bg-gray-100 hover:bg-gray-400;
+    transition: all 0.4s linear;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .card img {
+    @apply mb-2;
+  }
+  .card h4 {
+    @apply text-lg mb-4;
+  }
+  .card:hover a {
+    text-decoration: underline;
+  }
 </style>

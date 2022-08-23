@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Creative Technologist</title>
+    <meta name="robots" content="index,follow,noodp" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="content-language" content="en" />
+    <meta name="language" content="english, en" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script type="text/javascript" src="/js/jquery341.min.js" ></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script> -->
+
+    <style type="text/css">
+      html {
+        padding: 0;
+      }
+
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        /* font-size: 16px; */
+        color: black;
+        background-color: #fffef5; /*#fffcd2;*/
+        margin: 0;
+        padding: 0;
+      }
+
+      #main-flex {
+        width: 100%;
+        /* height: 100vh; */
+
+        display: flex;
+        flex-direction: column;
+      }
+
+      .header {
+        background-color: #000;
+        color: #fff;
+
+        flex: 0 0 auto;
+
+        padding-left: 15%;
+        padding-bottom: 18px;
+      }
+
+      .header h1 {
+        margin-top: 28px;
+        margin-bottom: 8px;
+      }
+      .header h2 {
+        margin: 8px 0;
+      }
+
+      .header a {
+        color: inherit;
+      }
+
+      .main {
+        flex: 1 0 auto;
+
+        padding-left: 15vw;
+        padding-right: 40px;
+        max-width: 800px;
+        padding-top: 20px;
+        padding-bottom: 80px;
+        text-align: justify;
+      }
+
+      .main-h {
+        font-size: 22px;
+        margin-top: 18px;
+        margin-bottom: 8px;
+      }
+
+      .main-p {
+        margin-bottom: 16px;
+      }
+
+      .main-b {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main-flex">
+      <div class="header">
+        <h1>Thomas Britnell</h1>
+        <h2>Creative Technologist</h2>
+        <p>
+          Hey, I'm not sure how to start, would you help me write my summary?
+          Hit the ANY key to get started.
+        </p>
+      </div>
+      <div class="main"></div>
+      <!-- <script type="text/javascript" src="/js/intro.js" ></script> -->
+      <!-- <script type="text/javascript" src="/js/type.js" ></script> -->
+    </div>
+    <script>
+      const texts = [
+        {
+          type: "p",
+          text: `In short what I do as Creative Technologist ( CT or Design Technologist) is design and prototyping, bringing technical expertise into the design process. On the one hand to ensure the concepts are feasable, while on the other hand to inspire - to review new and old technologies and find new applications. As such I am a generalist in my technical skills, every new project may require different technologies, coding languages and libraries.`,
+        },
+        {
+          type: "p",
+          text: `What I enjoy is problem-solving - Discovering the true problem by asking the right questions. Finding the right technology for the context. I love tinkering and call my work play because there is a different kind of exploration involved, playing with ideas and concepts means trying things out without being scared of doing something wrong. `,
+        },
+        {
+          type: "p",
+          text: `A large contribution as CT is often prototyping - rapid prototypes to help make design decisions, proof-of-concepts to demonstrate new solutions and of course high-end, fully functional prototypes which are often part of project outcome and handover. An important factor here too is chosing the right level of fidelity for the prototype. This depends on what is should demonstrate and who will be using it.`,
+        },
+        {
+          type: "html",
+          html: `This is my website where I have been practicing my web development skills. What you can find here :`,
+        },
+        {
+          type: "html",
+          html: `■ some interactions I felt compelled to code at <a href="https://webs.wonday.eu"> webs.wonday</a>`,
+        },
+        {
+          type: "html",
+          html: `■ documentation for other projects I worked on at  <a href="https://workout.wonday.eu"> workout.wonday</a>`,
+        },
+        {
+          type: "html",
+          html: `■ a blog for sharing things of personal interest at <a href="https://whims.wonday.eu"> whims.wonday</a>`,
+        },
+        {
+          type: "html",
+          html: `■ Finally some of my handlettering & calligraphy at <a href="https://words.wonday.eu"> words.wonday</a> - though now neglected`,
+        },
+      ];
+
+      let $header = document.getElementsByClassName("header")[0];
+      let $main = document.getElementsByClassName("main")[0];
+
+      const cursor = {
+        state: false,
+        char: "█",
+        switch: () => {
+          if (!cursor.state) {
+            cursor.state = true;
+            if (p) p.textContent += cursor.char;
+          } else {
+            cursor.state = false;
+            if (p)
+              p.textContent = p.textContent.slice(0, p.textContent.length - 1);
+          }
+        },
+      };
+
+      var intvl = setInterval(() => {
+        cursor.switch();
+        // console.log(cursor)
+      }, 600);
+
+      var text,
+        ray = [],
+        p;
+      p = document.createElement("div");
+      $main.appendChild(p);
+
+      function pop_first(aray) {
+        let x = aray[0];
+        aray.splice(0, 1);
+        return x;
+      }
+
+      function fakeType() {
+        if (texts.length == 0 && ray.length == 0) return;
+
+        if (intvl) {
+          clearInterval(intvl);
+          intvl = null;
+          $main.firstChild.remove();
+        }
+
+        // new paragraph
+        if (ray.length == 0) {
+          // new paragraph
+          let el = pop_first(texts);
+          let div = document.createElement("div");
+          $main.appendChild(div);
+          if (el.type === "p") {
+            // div.textContent = p.textContent.slice(0,div.textContent.length-1) // remove cursor
+            div.className = "main-p";
+            p = div;
+            ray = el.text.split(" ");
+          }
+          if (el.type === "html") {
+            div.innerHTML = el.html;
+          }
+        }
+
+        // pop word
+        if (ray.length > 0) {
+          let word = pop_first(ray);
+          p.textContent = p.textContent.slice(0, p.textContent.length - 1);
+          p.textContent += word + " ";
+          p.textContent += cursor.char;
+          // remove end of paragraph
+          if (ray.length == 0)
+            p.textContent = p.textContent.slice(0, p.textContent.length - 1);
+        }
+      }
+
+      function scribble() {
+        fakeType();
+        pencil_sound();
+        scroll_bottom();
+      }
+
+      document.onkeydown = (ev) => {
+        ev.preventDefault();
+        scribble();
+      };
+
+      var drag = false;
+      var cnt = 0;
+      document.addEventListener("touchstart", () => {
+        drag = true;
+        scribble();
+      });
+      document.addEventListener("touchend", () => (drag = false));
+      document.addEventListener("touchmove", (ev) => {
+        if (drag) {
+          ev.preventDefault();
+          if (++cnt >= 10) {
+            cnt = 0;
+            scribble();
+          }
+        }
+      });
+
+      var pencil = new Audio("/pencil.mp3");
+      pencil.volume = 0.2;
+      function pencil_sound() {
+        if (pencil.paused) {
+          pencil.play();
+          setTimeout(() => pencil.pause(), 800 + 400 * Math.random());
+        }
+      }
+
+      function scroll_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+    </script>
+  </body>
+</html>
