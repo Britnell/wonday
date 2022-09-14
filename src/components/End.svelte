@@ -49,6 +49,8 @@
         max-width: 600px;
 
         height: 27vw;
+        max-height: 265px;
+
         font-family: "Roboto", sans-serif;
         font-size: min(3.5vw, 30px);
 

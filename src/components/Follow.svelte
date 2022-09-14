@@ -342,7 +342,7 @@ const onScroll = ()=>{
             flex: 1;
 
             display: grid;
-            grid-template: repeat(3,100px) / repeat(3,100px);
+            grid-template: repeat(2,100px) / repeat(2,100px);
         }
         .solid {
             grid-row: 2/3;
@@ -350,7 +350,7 @@ const onScroll = ()=>{
         }
         
     .endspacer {
-        min-height: 60vh;
+        min-height: 40vh;
     }
 
 
