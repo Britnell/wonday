@@ -9,10 +9,11 @@ const { title, link, img } = Astro.props as Props;
 ---
 
 <article class="card">
-  <a href={link} target="_blank">
+  <a href={link} target="_blank" rel="noopener noreferrer">
     {img && <img src={img} alt={title} />}
     <h4>{title}</h4>
   </a>
+  <slot />
 </article>
 
 <style>
