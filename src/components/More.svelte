@@ -23,6 +23,7 @@
         font-size: min(20vw, 240px);
         text-align: center;
         font-weight: 700;
+        white-space: nowrap;
 
         color: #000;
         opacity: var(--s);
